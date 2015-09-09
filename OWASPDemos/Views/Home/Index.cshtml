@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>A run around the OWASP Top Ten</h1>
+    <p class="lead">This site deliberately demonstrates insecure coding practices. Nothing here should be taken as best practice.</p>
+    <p>Whilst the site is written in <a href="https://asp.net">asp.net</a> every framework is vulnerable to the demonstrated problems.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Un-validated redirects &amp; forwards</h2>
+        <p><a class="btn btn-default" href="https://www.google.com/accounts/Logout?service=wise&continue=http%3A%2F%2Fgoogleads.g.doubleclick.net%2Faclk%3Fsa%3DL%26ai%3DCtHoIVxn3UvjLOYGKiAeelIHIBfLQnccEAAAQASAAUNTx5Pf4_____wFgvwWCARdjYS1wdWItMDQ2NjU4MjEwOTU2NjUzMsgBBOACAKgDAaoE5AFP0NHr5cHwFmWgKNs6HNTPVk7TWSV-CDHX83dKdGSWJ2ADoZNIxUHZwjAODRyDY_7nVtpuqSLOTef4xzVxDQ2U22MNbGak33Ur7i2jDB8LdYt9TbC3ifsXmklY5jl3Zpq4_lP7wagVfjt0--tNPPGTR96NGbxgPvfHMq9ZsTXpjhc_lPlnyGjlWzF8yn437iaxhGRwYLt_CymifLO2YaJPkCm9nLpONtUM-mstUSpKQrP2VjjaZkbDtuK0naLLBV37aYEY4TzWQi8fQGN47z4XgpinBCna91zQayZjn2wxccDCl0zgBAGgBhU%26num%3D0%26sig%3DAOD64_3Qi4qG3CRVHRI5AHSkSGuL7HJqSA%26client%3Dca-pub-0466582109566532%26adurl%3Dhttps%3A%2F%2Fwww.bing.com">Bad Example (Google) &raquo;</a></p>
+        <p>
+            @Html.ActionLink(
+                linkText: "Bad Example (code) »",
+                actionName: "Bad",
+                controllerName: "Redirect",
+                routeValues: new { target = "http://badattackersite.example/" },
+                htmlAttributes: new { @class = "btn btn-default" }
+            )
+        </p>
+        <p>
+            @Html.ActionLink(
+              linkText: "Good Example (code) »",
+                actionName: "Good",
+                controllerName: "Redirect",
+                routeValues: new { id = 1 },
+                htmlAttributes: new { @class = "btn btn-default" }
+            )
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Cross Site Request Forgery (CSRF)</h2>
+        <p>
+            @Html.ActionLink(
+                linkText: "See my balance »",
+                actionName: "Index",
+                controllerName: "Csrf",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+            )
+          </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>
