@@ -151,6 +151,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CsrfController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MissingAccessControlController.cs" />
     <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,6 +197,11 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Csrf\Index.cshtml" />
+    <Content Include="Views\MissingAccessControl\Index.cshtml" />
+    <Content Include="Views\MissingAccessControl\SecretThing.cshtml" />
+    <Content Include="Views\Csrf\Protected.cshtml" />
+    <Content Include="Views\MissingAccessControl\Protected.cshtml" />
+    <Content Include="Views\MissingAccessControl\ProtectedSecretThing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

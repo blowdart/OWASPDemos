@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Protected against Missing Function Level Access Control";
+}
+
+<div class="jumbotron">
+    <h1>Missing Function Level Access Control</h1>
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <p>You're not logged in. You can't do anything. Go away.</p>
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink(
+                linkText: "Do something »",
+                actionName: "ProtectedSecretThing",
+                controllerName: "MissingAccessControl",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+            )
+        </p>
+    }
+</div>
+

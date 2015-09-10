@@ -35,17 +35,42 @@
         <h2>Cross Site Request Forgery (CSRF)</h2>
         <p>
             @Html.ActionLink(
-                linkText: "See my balances »",
+                linkText: "Bad Example »",
                 actionName: "Index",
                 controllerName: "Csrf",
                 routeValues: new { },
                 htmlAttributes: new { @class = "btn btn-default" }
             )
           </p>
+        <p>
+            @Html.ActionLink(
+                linkText: "Good Example »",
+                actionName: "Protected",
+                controllerName: "Csrf",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+            )
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Missing function level access control</h2>
+        <p>
+            @Html.ActionLink(
+                linkText: "Bad Example »",
+                actionName: "Index",
+                controllerName: "MissingAccessControl",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+            )
+        </p>
+        <p>
+            @Html.ActionLink(
+                linkText: "Good Example »",
+                actionName: "Protected",
+                controllerName: "MissingAccessControl",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+            )
+        </p>
     </div>
 </div>
