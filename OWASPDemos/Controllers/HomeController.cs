@@ -11,15 +11,6 @@ namespace OWASPDemos.Controllers
             return View();
         }
 
-        // Seriously bad and dumb code follows.
-        public ActionResult Download(string filePath)
-        {
-            string actualPath = HostingEnvironment.MapPath(filePath);
-            byte[] fileBytes = System.IO.File.ReadAllBytes(actualPath);
-            string fileName = Path.GetFileName(filePath);
-            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
-        }
-
         public ActionResult Throw()
         {
             throw new System.Exception("Something horrible went wrong with the following encryption key...");

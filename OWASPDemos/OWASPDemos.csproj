@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CrossSiteScriptingController.cs" />
     <Compile Include="Controllers\CsrfController.cs" />
     <Compile Include="Controllers\DirectObjectReferenceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -208,6 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CrossSiteScripting\" />
     <Folder Include="Views\Redirect\" />
   </ItemGroup>
   <ItemGroup>
@@ -215,7 +217,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <PropertyGroup>

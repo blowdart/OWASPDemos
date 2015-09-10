@@ -79,13 +79,7 @@
     <div class="col-md-4">
         <h2>Sensitive Data Exposure</h2>
         <p>
-            @Html.ActionLink(
-                linkText: "Example »",
-                actionName: "Download",
-                controllerName: "Home",
-                routeValues: new { filePath = "~/web.config" },
-                htmlAttributes: new { @class = "btn btn-default" }
-            )
+            <a href="http://localhost:31337/Web.config.bak" class="btn btn-default">Example »</a>
         </p>
     </div>
     <div class="col-md-4">
