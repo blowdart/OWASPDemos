@@ -7,7 +7,7 @@ namespace OWASPDemos.Models
 
     public class Redirect
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Uri { get; set; }
     }
 
@@ -16,8 +16,8 @@ namespace OWASPDemos.Models
         private static List<Redirect> _redirects =
             new List<Redirect>
             {
-                new Redirect { ID = 1, Uri = "https://www.idunno.org/" },
-                new Redirect { ID = 2, Uri = "https://www.bing.com/" }
+                new Redirect { Id = 1, Uri = "https://www.idunno.org/" },
+                new Redirect { Id = 2, Uri = "https://www.bing.com/" }
             };
 
         public IList<Redirect> Redirects

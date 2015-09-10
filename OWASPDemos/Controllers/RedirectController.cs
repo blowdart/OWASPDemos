@@ -14,7 +14,7 @@ namespace OWASPDemos.Controllers
             string target;
             using (var context = new RedirectsContext())
             {
-                target = context.Redirects.FirstOrDefault(r => r.ID == id).Uri;
+                target = context.Redirects.FirstOrDefault(r => r.Id == id).Uri;
             }
 
             if (string.IsNullOrEmpty(target))
