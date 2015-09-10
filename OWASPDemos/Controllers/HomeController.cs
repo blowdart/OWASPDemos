@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.IO;
+using System.Web.Hosting;
 using System.Web.Mvc;
 
 namespace OWASPDemos.Controllers
@@ -13,18 +11,13 @@ namespace OWASPDemos.Controllers
             return View();
         }
 
-        public ActionResult About()
+        // Seriously bad and dumb code follows.
+        public ActionResult Download(string filePath)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            string actualPath = HostingEnvironment.MapPath(filePath);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(actualPath);
+            string fileName = Path.GetFileName(filePath);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
     }
 }
