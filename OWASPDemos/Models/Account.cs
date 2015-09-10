@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OWASPDemos.Models
 {
@@ -9,7 +10,8 @@ namespace OWASPDemos.Models
 
         public string Description { get; set; }
 
-        public float Balance { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal Balance { get; set; }
 
         public string Owner { get; set; }
     }
@@ -19,9 +21,9 @@ namespace OWASPDemos.Models
         private static List<Account> _accounts = 
             new List<Account>
             {
-                new Account { Id = "100000001", Description = "Checking", Balance = 500.00F, Owner = "barryd@idunno.org" },
-                new Account { Id = "100000002", Description = "Savings", Balance = 3.50F, Owner = "barryd@idunno.org" },
-                new Account { Id = "100003001", Description = "Checking", Balance = 0, Owner = "attacker@badsite.example" }
+                new Account { Id = "100000001", Description = "Checking", Balance = 500.00M, Owner = "barryd@idunno.org" },
+                new Account { Id = "100000002", Description = "Savings", Balance = 3.50M, Owner = "barryd@idunno.org" },
+                new Account { Id = "100003001", Description = "Checking", Balance = 0M, Owner = "attacker@badsite.example" }
             };
 
         public IList<Account> Accounts

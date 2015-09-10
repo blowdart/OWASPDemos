@@ -1,3 +1,73 @@
-﻿@{
-    ViewBag.Title = "View my accounts";
+﻿@using System.Globalization
+@model IEnumerable<OWASPDemos.Models.Account>
+
+@{
+    ViewBag.Title = "My Accounts";
 }
+
+
+<div class="jumbotron">
+    <h1>My Accounts</h1>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Account Number</th>
+                <th>Description</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>@account.Id</td>
+                <td>@account.Description</td>
+                <td>@string.Format(new CultureInfo("en-US"), "{0:C}", @account.Balance)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+@using (Html.BeginForm("Transfer", "Csrf", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        <label for="from" class="col-sm-2 control-label">Transfer From</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="fromAccountId">
+                @foreach (var account in Model)
+                {
+                    <option value="@account.Id">@account.Description (@string.Format(new CultureInfo("en-US"), "{0:C}", @account.Balance))</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="to" class="col-sm-2 control-label">Transfer To</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="toAccountId">
+                @foreach (var account in Model)
+                {
+                    <option value="@account.Id">@account.Description (@string.Format(new CultureInfo("en-US"), "{0:C}", @account.Balance))</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="amount" class="col-sm-2 control-label">Amount</label>
+        <div class="col-sm-2">
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="number" name="amount" class="form-control" placeholder="0.00" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button type="submit" class="btn btn-primary">Transfer</button></div>
+    </div>
+}
+
+
+

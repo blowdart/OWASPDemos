@@ -37,6 +37,8 @@ namespace OWASPDemos.Controllers
             return RedirectToLocal(returnUrl);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Logoff()
         {
             var context = Request.GetOwinContext();
