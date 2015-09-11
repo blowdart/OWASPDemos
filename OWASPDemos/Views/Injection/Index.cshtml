@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@section styles
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/syntax/default.css")" />"
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/highlight.pack.js")"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+}
+
+<div class="jumbotron">
+    <h1>SQL Injection Demonstration</h1>
+</div>
+
+@using (Html.BeginForm("Login", "Injection", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <h2 class="col-sm-10">Please sign in</h2>
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">Email address</label>
+        <input name="email" class="form-control col-sm-10" placeholder="Email Address" value="@ViewData["email"]" required autofocus />
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">Password</label>
+        <input type="password" name="password" class="form-control col-sm-10" placeholder="Password" value="@ViewData["password"]" required autocomplete="off">
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Sign in</button></div>
+    </div>
+}
+
+@if (ViewData.ContainsKey("query"))
+{
+    <div class="jumbotron">
+        <h2>The query that would execute:</h2>
+        <pre><code>@ViewData["query"]</code></pre>
+        <p>Syntax highlighting provided by <a href="https://highlightjs.org/">highlightjs</a>.</p>
+    </div>
+}
+
+<div class="container">
+    <h4>Hint</h4>
+    <p>Try adding <code>' OR 1=1 /*</code> after the username.</p>
+</div>
