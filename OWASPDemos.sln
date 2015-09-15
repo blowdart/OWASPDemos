@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9D8C7CDE-129F-436A-8C2F-116E6A56FD6B}"
 	ProjectSection(SolutionItems) = preProject
 		csrf.html = csrf.html
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSWAPDemoWebForms", "OSWAPDemoWebForms\OSWAPDemoWebForms.csproj", "{08A7F469-9210-4111-9524-1984998E99D8}"
